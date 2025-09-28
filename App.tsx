@@ -18,6 +18,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selected360Monastery, setSelected360Monastery] = useState<any>(null);
 
+  // Debug: Add console log to check if App is rendering
+  console.log('App component is rendering:', { currentPage, user, showLogin });
+
   // Check for saved user session on load
   useEffect(() => {
     const savedUser = localStorage.getItem('monastery360_user');
@@ -70,10 +73,12 @@ export default function App() {
 
   if (showLogin) {
     return (
-      <LoginPage
-        onLogin={handleLogin}
-        onBack={handleBackToSite}
-      />
+      <div style={{ minHeight: '100vh', padding: '20px', backgroundColor: '#f9fafb' }}>
+        <LoginPage
+          onLogin={handleLogin}
+          onBack={handleBackToSite}
+        />
+      </div>
     );
   }
 
@@ -123,7 +128,7 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div style={{ minHeight: '100vh', backgroundColor: '#fdfcf8' }}>
       <Navigation 
         user={user} 
         onShowLogin={handleShowLogin} 
