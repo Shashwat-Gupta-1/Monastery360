@@ -8,7 +8,54 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4.0-38B2AC.svg)](https://tailwindcss.com/)
 [![Vite](https://img.shields.io/badge/Vite-5.4.1-646CFF.svg)](https://vitejs.dev/)
 
-## ✨ Features
+## 🚀 Quick Deployment to Vercel
+
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
+- Git
+- Vercel account
+
+### Deploy to Vercel (Recommended)
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Shashwat-Gupta-1/Monastery360.git
+   cd Monastery360
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Build the project:**
+   ```bash
+   npm run build
+   ```
+
+4. **Deploy to Vercel:**
+   - Push your code to GitHub
+   - Connect your GitHub repo to Vercel
+   - Vercel will automatically detect the build settings
+   - Your site will be deployed at `https://your-project-name.vercel.app`
+
+### Environment Setup
+The project is configured with:
+- ✅ Vite build system
+- ✅ TypeScript support
+- ✅ Tailwind CSS
+- ✅ All component files created
+- ✅ Production-ready build
+- ✅ Vercel configuration (`vercel.json`)
+
+### Build Status
+- Build: ✅ Passing
+- TypeScript: ✅ Configured 
+- All Components: ✅ Created
+- Dependencies: ✅ Installed
+
+---
 
 ### 🗺️ **Interactive Monastery Map**
 - **25+ Comprehensive Monasteries** across all four regions of Sikkim

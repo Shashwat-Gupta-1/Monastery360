@@ -82,11 +82,13 @@ export default function App() {
       <div className="min-h-screen bg-background">
         <Navigation 
           user={user} 
-          onLogin={handleShowLogin} 
+          onShowLogin={handleShowLogin} 
           onLogout={handleLogout}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
         <div className="pt-16">
-          <ReviewsPage user={user} />
+          <ReviewsPage />
         </div>
         <Footer />
       </div>
@@ -98,17 +100,13 @@ export default function App() {
       <div className="min-h-screen bg-background">
         <Navigation 
           user={user} 
-          onLogin={handleShowLogin} 
+          onShowLogin={handleShowLogin} 
           onLogout={handleLogout}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
         />
         <div className="pt-16">
-          <ManuscriptScanner 
-            user={user} 
-            onBack={() => {
-              window.location.hash = '';
-              setCurrentPage('home');
-            }}
-          />
+          <ManuscriptScanner />
         </div>
       </div>
     );
@@ -119,8 +117,7 @@ export default function App() {
     return (
       <Monastery360Viewer
         monastery={selected360Monastery}
-        onBack={() => setSelected360Monastery(null)}
-        user={user}
+        onClose={() => setSelected360Monastery(null)}
       />
     );
   }
@@ -129,14 +126,16 @@ export default function App() {
     <div className="min-h-screen bg-background">
       <Navigation 
         user={user} 
-        onLogin={handleShowLogin} 
+        onShowLogin={handleShowLogin} 
         onLogout={handleLogout}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
       />
       
       <main>
-        <HeroSection user={user} />
-        <SimpleInteractiveMap onStart360Tour={setSelected360Monastery} />
-        <VirtualTours user={user} onStart360Tour={setSelected360Monastery} />
+        <HeroSection />
+        <SimpleInteractiveMap onMonasterySelect={setSelected360Monastery} />
+        <VirtualTours />
         <DigitalArchives />
         <AIItineraryPlanner />
         <CulturalCalendar />
