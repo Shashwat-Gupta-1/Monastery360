@@ -133,68 +133,42 @@ export default function App() {
     );
   }
 
-  // Minimal test return - step by step to identify issue
-  try {
-    return (
-      <div className="min-h-screen" style={{ backgroundColor: '#ffffff', color: '#000000', padding: '20px' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Monastery360 - Loading...</h1>
-        <p>App is working! Current page: {currentPage}</p>
-        
-        <Navigation 
-          user={user} 
-          onShowLogin={handleShowLogin} 
-          onLogout={handleLogout}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-        
-        {/* Test components one by one */}
-        <div style={{ marginTop: '2rem' }}>
-          <HeroSection />
-        </div>
-        
-        <div style={{ marginTop: '2rem' }}>
-          <FeaturesSection />
-        </div>
-        
-        {/* Interactive Sections */}
-        <div id="map-section" style={{ marginTop: '2rem' }}>
-          <SimpleInteractiveMap onMonasterySelect={setSelected360Monastery} />
-        </div>
-        
-        <div id="tours-section" style={{ marginTop: '2rem' }}>
-          <VirtualTours />
-        </div>
-        
-        <div id="archives-section" style={{ marginTop: '2rem' }}>
-          <DigitalArchives />
-        </div>
-        
-        <div id="planner-section" style={{ marginTop: '2rem' }}>
-          <AIItineraryPlanner />
-        </div>
-        
-        <div id="calendar-section" style={{ marginTop: '2rem' }}>
-          <CulturalCalendar />
-        </div>
-        
-        <Footer />
+  return (
+    <div className="min-h-screen">
+      <Navigation 
+        user={user} 
+        onShowLogin={handleShowLogin} 
+        onLogout={handleLogout}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+      
+      {/* Modern Homepage Layout */}
+      <HeroSection />
+      <FeaturesSection />
+      
+      {/* Interactive Sections */}
+      <div id="map-section">
+        <SimpleInteractiveMap onMonasterySelect={setSelected360Monastery} />
       </div>
-    );
-  } catch (error) {
-    console.error('App render error:', error);
-    return (
-      <div style={{ 
-        padding: '20px', 
-        backgroundColor: '#ff0000', 
-        color: '#ffffff', 
-        minHeight: '100vh',
-        fontSize: '1.2rem'
-      }}>
-        <h1>Error in App Component</h1>
-        <p>There was an error rendering the app. Check console for details.</p>
-        <p>Error: {String(error)}</p>
+      
+      <div id="tours-section">
+        <VirtualTours />
       </div>
-    );
-  }
+      
+      <div id="archives-section">
+        <DigitalArchives />
+      </div>
+      
+      <div id="planner-section">
+        <AIItineraryPlanner />
+      </div>
+      
+      <div id="calendar-section">
+        <CulturalCalendar />
+      </div>
+      
+      <Footer />
+    </div>
+  );
 }
