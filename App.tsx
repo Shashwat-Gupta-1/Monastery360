@@ -4,6 +4,7 @@ import { LoginPage } from './components/LoginPage';
 import { ReviewsPage } from './components/ReviewsPage';
 import { ManuscriptScanner } from './components/ManuscriptScanner';
 import { HeroSection } from './components/HeroSection';
+import { FeaturesSection } from './components/FeaturesSection';
 import { SimpleInteractiveMap } from './components/SimpleInteractiveMap';
 import { Monastery360Viewer } from './components/Monastery360Viewer';
 import { VirtualTours } from './components/VirtualTours';
@@ -128,7 +129,7 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#fdfcf8' }}>
+    <div className="min-h-screen">
       <Navigation 
         user={user} 
         onShowLogin={handleShowLogin} 
@@ -137,14 +138,30 @@ export default function App() {
         setCurrentPage={setCurrentPage}
       />
       
-      <main>
-        <HeroSection />
+      {/* Modern Homepage Layout */}
+      <HeroSection />
+      <FeaturesSection />
+      
+      {/* Interactive Sections */}
+      <div id="map-section">
         <SimpleInteractiveMap onMonasterySelect={setSelected360Monastery} />
+      </div>
+      
+      <div id="tours-section">
         <VirtualTours />
+      </div>
+      
+      <div id="archives-section">
         <DigitalArchives />
+      </div>
+      
+      <div id="planner-section">
         <AIItineraryPlanner />
+      </div>
+      
+      <div id="calendar-section">
         <CulturalCalendar />
-      </main>
+      </div>
       
       <Footer />
     </div>
