@@ -8,56 +8,78 @@ interface NavigationProps {
 
 export function Navigation({ user, onShowLogin, onLogout, currentPage, setCurrentPage }: NavigationProps) {
   return (
-    <nav className="bg-white shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <h1 className="text-xl font-bold text-gray-900">Monastery360</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setCurrentPage('home')}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                currentPage === 'home'
-                  ? 'bg-indigo-100 text-indigo-700'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Home
-            </button>
-            <button
-              onClick={() => setCurrentPage('tours')}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                currentPage === 'tours'
-                  ? 'bg-indigo-100 text-indigo-700'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Virtual Tours
-            </button>
-            <button
-              onClick={() => setCurrentPage('archives')}
-              className={`px-3 py-2 rounded-md text-sm font-medium ${
-                currentPage === 'archives'
-                  ? 'bg-indigo-100 text-indigo-700'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Archives
-            </button>
-            {user ? (
-              <button
-                onClick={onLogout}
-                className="bg-red-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-red-700"
+    <nav className="navbar">
+      <div className="container">
+        <div className="flex items-center justify-between w-full">
+          <a href="#" className="logo" onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}>
+            🏛️ Monastery360
+          </a>
+          
+          <ul className="nav-menu">
+            <li>
+              <a 
+                href="#" 
+                className={`nav-link ${currentPage === 'home' ? 'text-primary font-semibold' : ''}`}
+                onClick={(e) => { e.preventDefault(); setCurrentPage('home'); }}
               >
-                Logout
-              </button>
+                Home
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className={`nav-link ${currentPage === 'tours' ? 'text-primary font-semibold' : ''}`}
+                onClick={(e) => { e.preventDefault(); setCurrentPage('tours'); }}
+              >
+                Virtual Tours
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className={`nav-link ${currentPage === 'archives' ? 'text-primary font-semibold' : ''}`}
+                onClick={(e) => { e.preventDefault(); setCurrentPage('archives'); }}
+              >
+                Archives
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className={`nav-link ${currentPage === 'planner' ? 'text-primary font-semibold' : ''}`}
+                onClick={(e) => { e.preventDefault(); setCurrentPage('planner'); }}
+              >
+                AI Planner
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#" 
+                className={`nav-link ${currentPage === 'calendar' ? 'text-primary font-semibold' : ''}`}
+                onClick={(e) => { e.preventDefault(); setCurrentPage('calendar'); }}
+              >
+                Events
+              </a>
+            </li>
+          </ul>
+          
+          <div className="flex items-center gap-4">
+            {user ? (
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-gray-600">Welcome, {user.name}</span>
+                <button
+                  onClick={onLogout}
+                  className="btn btn-secondary"
+                >
+                  Logout
+                </button>
+              </div>
             ) : (
               <button
                 onClick={onShowLogin}
-                className="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-700"
+                className="btn btn-primary"
               >
-                Login
+                Sign In
               </button>
             )}
           </div>
