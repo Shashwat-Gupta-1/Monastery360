@@ -133,68 +133,42 @@ export default function App() {
     );
   }
 
-  // Minimal test return - step by step to identify issue
-  try {
-    return (
-      <div className="min-h-screen" style={{ backgroundColor: '#ffffff', color: '#000000', padding: '20px' }}>
-        <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>Monastery360 - Loading...</h1>
-        <p>App is working! Current page: {currentPage}</p>
+  return (
+    <div className="app">
+      <Navigation 
+        user={user} 
+        onShowLogin={handleShowLogin} 
+        onLogout={handleLogout}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+      
+      <main className="main-content">
+        <HeroSection />
+        <FeaturesSection />
         
-        <Navigation 
-          user={user} 
-          onShowLogin={handleShowLogin} 
-          onLogout={handleLogout}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-        />
-        
-        {/* Test components one by one */}
-        <div style={{ marginTop: '2rem' }}>
-          <HeroSection />
-        </div>
-        
-        <div style={{ marginTop: '2rem' }}>
-          <FeaturesSection />
-        </div>
-        
-        {/* Interactive Sections */}
-        <div id="map-section" style={{ marginTop: '2rem' }}>
+        <section id="map-section" className="section">
           <SimpleInteractiveMap onMonasterySelect={setSelected360Monastery} />
-        </div>
+        </section>
         
-        <div id="tours-section" style={{ marginTop: '2rem' }}>
+        <section id="tours-section" className="section">
           <VirtualTours />
-        </div>
+        </section>
         
-        <div id="archives-section" style={{ marginTop: '2rem' }}>
+        <section id="archives-section" className="section">
           <DigitalArchives />
-        </div>
+        </section>
         
-        <div id="planner-section" style={{ marginTop: '2rem' }}>
+        <section id="planner-section" className="section">
           <AIItineraryPlanner />
-        </div>
+        </section>
         
-        <div id="calendar-section" style={{ marginTop: '2rem' }}>
+        <section id="calendar-section" className="section">
           <CulturalCalendar />
-        </div>
-        
-        <Footer />
-      </div>
-    );
-  } catch (error) {
-    console.error('App render error:', error);
-    return (
-      <div style={{ 
-        padding: '20px', 
-        backgroundColor: '#ff0000', 
-        color: '#ffffff', 
-        minHeight: '100vh',
-        fontSize: '1.2rem'
-      }}>
-        <h1>Error in App Component</h1>
-        <p>There was an error rendering the app. Check console for details.</p>
-        <p>Error: {String(error)}</p>
-      </div>
-    );
-  }
+        </section>
+      </main>
+      
+      <Footer />
+    </div>
+  );
 }
