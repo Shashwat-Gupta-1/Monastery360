@@ -276,7 +276,7 @@ We welcome contributions! Please feel free to:
 
 ## 🚀 Live Demo
 
-[🌐 Visit Monastery360](https://monastery360.vercel.app) 
+[🌐 Visit Monastery360](https://bit.ly/46pIDkI) 
 
 ---
 
