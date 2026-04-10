@@ -10,7 +10,7 @@
 
 ## 🚀 Quick Deployment to Vercel
 
-### Prerequisites
+### Prerequisitesss
 - Node.js 18+ 
 - npm or yarn
 - Git
